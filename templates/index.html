@@ -1,0 +1,305 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My website</title>
+    
+    <link rel="stylesheet" href="{% static '/css/index.css' %}">
+    
+</head>
+<body>
+    <!-- {% csrf_token %} -->
+    <div class="top-banner">
+        <div class="container">
+            <div class="nav-links">
+                <ul class="flex">
+                    {% if messages %}
+                        <ul class="messages">
+                            {% for message in messages %}
+                                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                    {% if user.is_authenticated %}
+                        <!-- Show this if the user is logged in -->
+                        <h3>Hello {{ user.username }}</h3>
+                        <!-- <h4>You are successfully logged in.</h4> -->
+                        <!-- <li><a href="{% url 'signout' %}" class="hover-link primary-button">Sign Out</a></li> -->
+                    {% endif %}
+
+                                
+                            
+                </ul>
+            </div>
+            <!-- <div class="small-bold-text banner-text" >
+                New to usability Hub: Open and close card sorting.
+                
+            </div> -->
+            
+
+        </div>
+        
+    </div>
+        <nav>
+            <div class="container main-nav flex">
+                    <a href="{% url 'home' %}" class="company-logo">
+                        <img src="/static/asset/asset 1.png" alt="company logo">
+                    </a>
+                
+                <div class="nav-links">
+                        <ul class="flex">
+                            <li><a href="#" class="hover-link">Products</a></li>
+                            <li><a href="#" class="hover-link">Customer</a></li>
+                            <li><a href="#" class="hover-link">Pricing</a></li>
+                            <li><a href="#" class="hover-link">Resources</a></li>
+                            <!-- {% if  user.is_authenticated %}
+                            <h3>Hello {{fname}}</h4>
+                            <h4>You are successfully logged in..</h4>
+
+                             <button type="submit" class="hover-link primary-button"><a href="signout">Sign out</a></button>
+                             <li><a href="signout"  class="hover-link primary-button">Sign out</a></li>
+                            {% else %}-->
+
+                            <!-- <li><a href="signin"class="hover-link secondary-button">Sign in</a></li>
+                            <li><a href="signup"class="hover-link primary-button">Sign up</a></li> -->
+                            <!-- {% endif %}  -->
+                            {% if user.is_authenticated %}
+                            <!-- User is authenticated, so show "Sign out" link -->
+                            <li><a href="{% url 'signout' %}" class="hover-link secondary-button">Sign out</a></li>
+                        {% else %}
+                            <!-- User is not authenticated, so show "Sign in" and "Sign up" links -->
+                            <li><a href="{% url 'signin' %}" class="hover-link secondary-button">Sign in</a></li>
+                            <li><a href="{% url 'signup' %}" class="hover-link primary-button">Sign up</a></li>
+                        {% endif %}
+                            
+                        </ul>
+
+
+                </div>
+            </div>
+        </nav>
+        <header-top>
+            <div class= "container header-section flex">
+                
+                     <div class="header-left"></div>
+                     <div class="header-right"></div>
+            </div>
+            
+        </header-top>
+        
+
+        <header>
+            
+            <div class="container header-section flex">
+                    <div class="header-left">
+                        <h1>Translation</h1>
+                        <p> Translation is a remote user research platform that makes the guesswork
+                             out of design decisions by validating them with real users.</p>
+                             <a href="#" class="primary-button get-started-btn">Get Translate</a>
+                            <!-- {% if user.is_authenticated %}
+                                <a href="#" class="primary-button get-started-btn">Get Translate</a>
+                                {% else %}
+                                <a href="#" class="hover-link primary-button">Log in to get Translate</a>
+                            {% endif %} -->
+                    </div>
+                    <div class="header-right">
+                        <img src="./static/asset/asset 2.png" alt="hero Image">
+                    </div>
+            </div>
+        </header>
+        <section class="companies-section">
+            <div class="container">
+                <div class="small-bold-text companies-header">The world's best companies on
+                     UsabilityHub to make better design decisions.</div>
+                     <div class="logos flex">
+                        <img class="logo" src="./static/asset/asset 3.png" alt="">
+                        <img class="logo" src="./static/asset/asset 4.png" alt="">
+                        <img class="logo" src="./static/asset/asset 5.png" alt="">
+                        <img class="logo" src="./static/asset/asset 6.png" alt="">
+                        <img class="logo" src="./static/asset/asset 7.png" alt="">
+                        <img class="logo" src="./static/asset/asset 8.svg" alt="">
+                        <img class="logo" src="./static/asset/asset 9.png" alt="">                     </div>
+            </div>
+        </section>
+        <!-- Feature Section -->
+        <section class="features-section">
+            <div class="container">
+                <div class="features-header">
+                    <h2 class="features-heading-text">Your user research Swiss Army Knife.</h2>
+                    <a href="#" class="secondary-button">See all features <i class="fa-solid fa-right-long"></i></a>
+                </div>
+                <div class="features-area flex">
+                    <div class="features-card flex">
+                        <img src="./static/asset/asset 11.svg" alt="">
+                        <h3>Card sorting</h3>
+                        <p>Discover how people group and label information.</p>
+                        <a href="#" class="secondary-button">Learn more <i class="fa-solid fa-right-long"></i></a>
+                    </div>
+                    <div class="features-card flex">
+                        <img src="./static/asset/asset 13.svg" alt="">
+                        <h3>Card sorting</h3>
+                        <p>Discover how people group and label information.</p>
+                        <a href="#" class="secondary-button">Learn more <i class="fa-solid fa-right-long"></i></a>
+                    </div>
+                    <div class="features-card flex">
+                        <img src="./static/asset/asset 14.svg" alt="">
+                        <h3>Card sorting</h3>
+                        <p>Discover how people group and label information.</p>
+                        <a href="#" class="secondary-button">Learn more <i class="fa-solid fa-right-long"></i></a>
+                    </div>
+                    <div class="features-card flex">
+                        <img src="./static/asset/asset 15.svg" alt="">
+                        <h3>Card sorting</h3>
+                        <p>Discover how people group and label information.</p>
+                        <a href="#" class="secondary-button">Learn more <i class="fa-solid fa-right-long"></i></a>
+                    </div>
+                    <div class="features-card flex">
+                        <img src="./static/asset/asset 16.svg" alt="">
+                        <h3>Card sorting</h3>
+                        <p>Discover how people group and label information.</p>
+                        <a href="#" class="secondary-button">Learn more <i class="fa-solid fa-right-long"></i></a>
+                    </div>
+                    <div class="features-card flex">
+                        <img src="./static/asset/asset 17.svg" alt="">
+                        <h3>Card sorting</h3>
+                        <p>Discover how people group and label information.</p>
+                        <a href="#" class="secondary-button">Learn more <i class="fa-solid fa-right-long"></i></a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <section class="big-features-section">
+            <div class="container flex big-feature-container">
+                <div class="feature-img">
+                    <img src="./static/asset/asset 21.png" alt="">
+                </div>
+                    <div class="feature-desc flex">
+                        <h4>Effortless validation for</h4>
+                        <h3>Design Professionals</h3>
+                        <p>Test interfaces, interaction flows,iconography and more, to
+                            help you create intuitive and delightful experiances for your users. </p>
+                    </div>
+                    
+    
+            </div>
+            
+        </section>
+
+        <section class="big-features-section"></section>
+            <div class="container flex big-feature-container">
+                    <div class="feature-desc flex">
+                        <h4>Effortless validation for</h4>
+                        <h3>Design Professionals</h3>
+                        <p>Test interfaces, interaction flows,iconography and more, to
+                            help you create intuitive and delightful experiances for your users. </p>
+                    </div>
+                    <div class="feature-img">
+                        <img src="./static/asset/asset 24.png" alt="">
+                    </div>
+                    
+    
+            </div>
+            
+        </section>
+
+        <section class="big-features-section"></section>
+                <div class="container flex big-feature-container">
+                    <div class="feature-img">
+                        <img src="./static/asset/asset 18.png" alt="">
+                    </div>
+                        <div class="feature-desc flex">
+                            <h4>Effortless validation for</h4>
+                            <h3>Design Professionals</h3>
+                            <p>Test interfaces, interaction flows,iconography and more, to
+                                help you create intuitive and delightful experiances for your users. </p>
+                        </div>
+                        
+        
+                </div>
+                <!-- Example Section -->
+            <div class="examples-section">
+                <div class="container">
+                    <div class="examples-header flex">
+                        <h2 class="examples-heading-text">One plateform, endless possiblites.</h2>
+                        <a href="#" class="secondary-button">See more examples.<i class="fa-solid fa-right-long"></i></a>
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </section>
+        
+
+<!-- CTA section -->
+        <section class="cta-section">
+            <div class="container flex cta-section-container">
+                <h2> Start testing today</h2>
+                <p>Take the guesswork out of design decisions.</p>
+                <a href="#" class="primary-button">Get started</a>
+            </div>
+
+        </section>
+
+        <!-- Footer  -->
+        <footer>
+            <div class="container flex footer-container">
+                <a href="{% url 'home' %}" class="company-logo">
+                    <img src="./static/asset/asset 1.png" alt="company logo">
+                </a>
+
+                <div class="link-column flex">
+                    <h4>Product</h4>
+                    <a href="#" class="hover-link">Overview</a>
+                    <a href="#" class="hover-link">Pricing</a>
+                    <a href="#" class="hover-link">Usablity</a>
+                    <a href="#" class="hover-link">Customer page</a>
+                    <a href="#" class="hover-link">Status Page</a>
+                </div>
+                <div class="link-column flex">
+                    <h4>Product</h4>
+                    <a href="#" class="hover-link">Overview</a>
+                    <a href="#" class="hover-link">Pricing</a>
+                    <a href="#" class="hover-link">Usablity</a>
+                    <a href="#" class="hover-link">Customer page</a>
+                    <a href="#" class="hover-link">Status Page</a>
+                </div>
+                <div class="link-column flex">
+                    <h4>Methodalogy</h4>
+                    <a href="#" class="hover-link">Overview</a>
+                    <a href="#" class="hover-link">Pricing</a>
+                    <a href="#" class="hover-link">Usablity</a>
+                    <a href="#" class="hover-link">Customer page</a>
+                    <a href="#" class="hover-link">Status Page</a>
+                </div>
+              
+
+
+            </div>
+        </footer>
+
+        <!-- sub Footer -->
+        <div class="subfooter">
+            <div class="container flex sub-footer-container">
+                <a class="hover-link" href="#">Privacy Policy</a>
+                <a class="hover-link" href="#">Terms & Condition</a>
+                <a class="hover-link" href="#">Security information</a>
+                <a class="hover-link" href="#"></a>
+                <a class="hover-link" href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a class="hover-link" href="#"><i class="fa-brands fa-twitter"></i></a>
+
+                
+            </div>
+        </div>
+
+        <!-- <div class="spacer" style="height: 100vh;"></div> -->
+
+
+        
+    
+
+    <script src="https://kit.fontawesome.com/a5465bf8de.js" crossorigin="anonymous"></script>
+</body>
+</html>
